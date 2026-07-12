@@ -6,7 +6,7 @@
 
             <form action="./edit-user" method="POST">
 
-                <input type="hidden" name="id" value="<?= $user->id; ?>">
+                <input type="hidden" name="id" value="<?= $user['id']; ?>">
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -15,7 +15,7 @@
                         class="form-control" 
                         id="email" 
                         name="email"
-                        value="<?= htmlspecialchars($user->email); ?>"
+                        value="<?= htmlspecialchars($user['email']); ?>"
                         required
                     >
                 </div>

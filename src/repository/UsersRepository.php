@@ -30,12 +30,9 @@ class UsersRepository
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
         
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
-        var_dump($user);
-
-        $user1 = $this->hidrateUser($user);
-
-        var_dump($user1);
+        return $user = $statement->fetch(PDO::FETCH_ASSOC);
+        
+        
 
 
     }

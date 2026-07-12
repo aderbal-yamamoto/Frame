@@ -1,29 +1,75 @@
-    
-    <ul class="videos__container" alt="videos alura">
-        <?php  foreach($videos as $video): ?>
 
-        <li class="videos__item">
-            <?php if($video->getFilePath()!==null):?>
-            <a href="<?= $video->url; ?>">
-                <img src="img/uploads/<?= $video->getFilePath()?>" alt="" style="width: 100%;">
-            </a>    
-            <?php else: ?>
-            <iframe width="100%" height="72%" src="<?=$video->url;?>"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Lista de Vídeos</h2>
+
+    <div class="row justify-content-center g-4">
+
+        <?php foreach($videos as $video): ?>
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+
+            <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+
+                <?php if($video->getFilePath() !== null): ?>
+
+                    <img 
+                        src="img/uploads/<?= $video->getFilePath(); ?>" 
+                        class="w-100"
+                        style="height: 200px; object-fit: cover;"
+                        alt="<?= htmlspecialchars($video->title); ?>"
+                    >
+
+                <?php else: ?>
+
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                            src="<?= $video->url; ?>"
+                            title="<?= htmlspecialchars($video->title); ?>"
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
                 <?php endif; ?>
-            <div class="descricao-video">
-                <img src="./img/logo.png" alt="logo canal alura">
-                <h3><?= $video->title; ?></h3>
-                <div class="acoes-video">
-                    <a href="./editar-video?id=<?= $video->id; ?>">Editar</a>
-                    <a href="./remover-capa?id=<?= $video->id; ?>">Remover Capa</a>
-                    <a href="./remover-video?id=<?= $video->id; ?>">Excluir</a>
-                    <!-- adcionar botão para remover capa -->
-                    
+
+
+                <div class="card-body">
+
+                    <h5 class="card-title text-center">
+                        <?= htmlspecialchars($video->title); ?>
+                    </h5>
+
+
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+
+                        <a href="./editar-video?id=<?= $video->id; ?>" 
+                           class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+
+                        <a href="./remover-capa?id=<?= $video->id; ?>" 
+                           class="btn btn-secondary btn-sm">
+                            Capa
+                        </a>
+
+                        <a href="./remover-video?id=<?= $video->id; ?>" 
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Deseja excluir este vídeo?')">
+                            Excluir
+                        </a>
+
+                    </div>
+
                 </div>
+
             </div>
-        </li>
+
+        </div>
+
         <?php endforeach; ?>
-    </ul>
+
+    </div>
+
+</div>
