@@ -1,0 +1,13 @@
+{
+    "name": "yamamoto/teste",
+    "description": "teste de roteamento",
+    "type": "psr-4",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Yamamoto\\Teste\\": "src/"
+        }
+    },
+    "minimum-stability": "beta",
+    "require": {}
+}

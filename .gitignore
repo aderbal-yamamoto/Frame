@@ -1,0 +1,5 @@
+# Ignora uma pasta inteira de configurações
+config/config.php
+
+# Ignora todos os arquivos da vendor
+vendor/ 
