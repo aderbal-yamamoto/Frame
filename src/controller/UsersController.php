@@ -11,7 +11,16 @@ class UsersController extends Template
     public function index()
     {
         $users = $this->UsersRepository->all();
-        var_dump($users);
+        
+        echo $this->render('users-list',['users' => $users]);
+    }
+
+    public function editarUsuario()
+    {
+        $id = $_GET['id'];
+        $user = $this->UsersRepository->find($id);
+        echo $this->render('edit-user', ['user' => $user]);
+
     }
 
     public function CriarUsuario()

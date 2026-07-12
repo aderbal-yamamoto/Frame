@@ -12,5 +12,6 @@ return[
     'POST|/criar' => [VideoController::class, 'novoVideo'],
     'GET|/users' => [UsersController::class, 'index'],
     'GET|/criarusuario' => [UsersController::class, 'criarUsuario'],
-    'POST|/criarusuario' => [UsersController::class, 'novoUsuario' ],   
+    'POST|/criarusuario' => [UsersController::class, 'novoUsuario' ],
+    'GET|/edit-user'   => [UsersController::class, 'editarUsuario'],
 ];

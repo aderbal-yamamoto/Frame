@@ -22,6 +22,23 @@ class UsersRepository
         ); 
        
     }
+    public function find(int $id)
+    {
+        $sql = 'SELECT * FROM users WHERE id =:id';
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        var_dump($user);
+
+        $user1 = $this->hidrateUser($user);
+
+        var_dump($user1);
+
+
+    }
 
     public function create(array $user)
     {   
@@ -50,6 +67,11 @@ class UsersRepository
         
 
          
+    }
+
+    public function delete()
+    {
+
     }
 
     public function hidrateUser(array $userData) : Users
