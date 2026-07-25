@@ -13,7 +13,7 @@ return[
     'GET|/sobre'=>[SobreController::class, 'index'], 
     'GET|/criar' => [VideoController::class, 'create'],  
     'POST|/criar' => [VideoController::class, 'novoVideo'],
-    'GET|/users' => [UsersController::class, 'index'],
+    'GET|/list-users' => [UsersController::class, 'index'],
     'GET|/criarusuario' => [UsersController::class, 'criarUsuario'],
     'POST|/criarusuario' => [UsersController::class, 'novoUsuario' ],
     'GET|/edit-user'   => [UsersController::class, 'editarUsuario'],

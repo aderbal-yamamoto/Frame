@@ -35,7 +35,7 @@ class UsersController extends Template
         'message' => $resultado['message'] ?? $resultado['error']
         ];
 
-        header("Location: users");
+        header("Location: list-users");
         exit;
     }
 
@@ -48,7 +48,7 @@ class UsersController extends Template
     {
         $post = $_POST;
         $resultado = $this->UsersRepository->create($post);
-        header("Location: users");
+        header("Location: list-users");
     }
 
     public function excluir()
@@ -63,7 +63,7 @@ class UsersController extends Template
         'message' => 'Usuário excluído com sucesso!'
         ];
 
-        header("Location: users");
+        header("Location: list-users");
         exit;
     }
 
