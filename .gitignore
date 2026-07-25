@@ -3,3 +3,6 @@ config/config.php
 
 # Ignora todos os arquivos da vendor
 vendor/ 
+
+# Ignora o banco de dados 
+banco.sqlite
